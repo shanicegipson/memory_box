@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import Swal from 'sweetalert2';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class SignupModal extends Component {
-    showModal = () => {
+  state = {
+    firstName: '',
+    email: '',
+    password: ''
+  };  
+  
+  showModal = () => {
         Swal.mixin({
             input: 'text',
             confirmButtonText: 'Next &rarr;',
@@ -26,15 +34,31 @@ class SignupModal extends Component {
               Swal.fire({
                 title: 'All done!',
                 html: 
-                'Your answers: <pre><code>' +
+               'Your answers: <pre><code>' +
                 JSON.stringify(result.value) +
                 '</code></pre>',
                 confirmButtonText: 'Submit'
+            
+              }).then(() => {
+                if (result.value[0] && result.value[1] && result.value[2]) {
+                  console.log(result.value[0], 'this should be the users first name');
+                  console.log(result.value[1], 'this should be the users email');
+                  console.log(result.value[2], 'this should be the users password');
+                  this.props.dispatch({
+                    type: 'REGISTER',
+                    payload: {
+                      firstName: result.value[0],
+                      email: result.value[1],
+                      password: result.value[2],
+                    },
+                  });
+                } else {
+                  this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+                }
               })
             }
           })
     }
-    
     
     
     render () {
@@ -46,4 +70,4 @@ class SignupModal extends Component {
     }
 }
 
-export default SignupModal;
+export default connect (mapStoreToProps) (SignupModal);

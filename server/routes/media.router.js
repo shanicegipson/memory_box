@@ -14,9 +14,13 @@ router.get('/media', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-    const queryText = `INSERT INTO "pics" (path) VALUES ($1);`;
-    pool.query(queryText)
-    .then(() => res.sendStatus(201))
+    const path = req.body.path;
+    const description = req.body.description;
+
+    const queryText = `INSERT INTO "pics" ("path", "description") VALUES ($1, $2);`;
+
+    pool.query(queryText, [path, description])
+    .then(() => res.sendStatus(201, 'this POST is Successful'))
     .catch(() => res.sendStatus(500));
     
 
