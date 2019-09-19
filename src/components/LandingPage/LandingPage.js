@@ -13,6 +13,9 @@ class LandingPage extends Component {
     // }
 
     render() {
+        if (this.props.store.user.id){
+           this.props.history.push("/admin");
+        }
         return (
             <div className="container">
                

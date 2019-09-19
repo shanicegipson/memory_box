@@ -4,9 +4,11 @@ import {
   Redirect,
 } from 'react-router-dom'
 import {connect} from 'react-redux';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+// import LoginPage from '../LoginPage/LoginPage';
+// import RegisterPage from '../RegisterPage/RegisterPage';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import LoginModal from '../LoginModal/LoginModal';
+import SignupModal from '../SignupModal/SignupModal';
 
 // A Custom Wrapper Component -- This will keep our code DRY.
 // Responsible for watching redux state, and returning an appropriate component
@@ -39,11 +41,11 @@ const ProtectedRoute = (props) => {
   } else if (store.loginMode === 'login') {
     // if they are not logged in, check the loginMode on Redux State
     // if the mode is 'login', show the LoginPage
-    ComponentToShow = LoginPage;
+    ComponentToShow = LoginModal;
   } else {
     // the the user is not logged in and the mode is not 'login'
     // show the RegisterPage
-    ComponentToShow = RegisterPage;
+    ComponentToShow = SignupModal;
   }
 
   // redirect a logged in user if an authRedirect prop has been provided

@@ -41,17 +41,17 @@ class SignupModal extends Component {
             
               }).then(() => {
                 if (result.value[0] && result.value[1] && result.value[2]) {
-                  console.log(result.value[0], 'this should be the users first name');
-                  console.log(result.value[1], 'this should be the users email');
-                  console.log(result.value[2], 'this should be the users password');
                   this.props.dispatch({
                     type: 'REGISTER',
                     payload: {
                       firstName: result.value[0],
                       email: result.value[1],
+                      username: result.value[1],
                       password: result.value[2],
                     },
                   });
+                
+
                 } else {
                   this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
                 }

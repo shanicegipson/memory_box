@@ -17,10 +17,12 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+// import LoginPage from '../LoginPage/LoginPage';
+// import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import LoginModal from '../LoginModal/LoginModal';
+import SignupModal from '../SignupModal/SignupModal';
 
 class App extends Component {
   componentDidMount () {
@@ -40,6 +42,7 @@ class App extends Component {
             <Route
               exact
               path="/about"
+              
               component={AboutPage}
             />
             <Route
@@ -69,13 +72,13 @@ class App extends Component {
               exact
               path="/login"
               authRedirect="/admin"
-              component={LoginPage}
+              component={LoginModal}
             />
             <ProtectedRoute
               exact
               path="/registration"
               authRedirect="/admin"
-              component={RegisterPage}
+              component={SignupModal}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
