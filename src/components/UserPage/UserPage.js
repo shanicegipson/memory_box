@@ -1,20 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Button from 'react-bootstrap/Button';
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
-const UserPage = (props) => (
-  <div>
-    <h1 id="welcome">
-     { props.store.user.firstName} MEMORY BOX!
-    </h1>
-    <p>Your ID is: {props.store.user.id}</p>
-    <LogOutButton className="log-in" />
-  </div>
-);
 
-// this allows us to use <App /> in index.js
+class UserPage extends Component {
+  moveToAddPage = (event) => {
+    this.props.history.push("/upload");
+  }
+  render() {
+    const userFirstName = this.props.store.user.firstName;
+    return (
+      <container>
+        <div>
+          <div className="header">
+          <h1 id="welcome">
+            {userFirstName} MEMORY BOX!
+          </h1>
+          </div>
+          
+          <p>Your ID is: {this.props.store.user.id}</p>
+          <div className='feature-btn'>
+            <Button 
+              onClick={this.moveToAddPage}
+              type="button"
+              size="lg">+
+          </Button>
+          </div>
+
+          <LogOutButton className="log-in" />
+        </div>
+      </container>
+
+    )
+  }
+}
+
 export default connect(mapStoreToProps)(UserPage);

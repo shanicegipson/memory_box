@@ -17,8 +17,8 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
-// import LoginPage from '../LoginPage/LoginPage';
-// import RegisterPage from '../RegisterPage/RegisterPage';
+import UploadPage from '../UploadPage/UploadPage';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 import LoginModal from '../LoginModal/LoginModal';
@@ -79,6 +79,12 @@ class App extends Component {
               path="/registration"
               authRedirect="/admin"
               component={SignupModal}
+            />
+            <ProtectedRoute
+              exact
+              path="/upload"
+              // authRedirect="/admin"
+              component={UploadPage}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
