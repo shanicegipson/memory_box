@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* postImageUrl(action) {
+function* postMediaUrl(action) {
     try {
         const config = {
           headers: { 'Content-Type': 'application/json' },
@@ -16,6 +16,7 @@ function* postImageUrl(action) {
         console.log('posting image url');
         
         const response = yield axios.post('api/media', data, config);
+        console.log(response);
     
         
       } catch (error) {
@@ -24,7 +25,7 @@ function* postImageUrl(action) {
 }
 
 function* mediaInfoSaga() {
-  yield takeLatest('POST_IMAGE_URL', postImageUrl);
+  yield takeLatest('POST_MEDIA_URL', postMediaUrl);
 }
 
 export default mediaInfoSaga;

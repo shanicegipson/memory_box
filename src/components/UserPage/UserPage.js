@@ -12,7 +12,7 @@ class UserPage extends Component {
   render() {
     const userFirstName = this.props.store.user.firstName;
     return (
-      <container>
+      <div>
         <div>
           <div className="header">
           <h1 id="welcome">
@@ -31,7 +31,7 @@ class UserPage extends Component {
 
           <LogOutButton className="log-in" />
         </div>
-      </container>
+      </div>
 
     )
   }

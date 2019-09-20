@@ -14,8 +14,9 @@ router.get('/media', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-    const path = req.body.path;
     const description = req.body.description;
+    const path = req.body.mediaUrl;
+    console.log(path);
 
     const queryText = `INSERT INTO "pics" ("path", "description") VALUES ($1, $2);`;
 

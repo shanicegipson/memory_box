@@ -8,7 +8,12 @@ import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 // the component name TemplateClass with the name for the new 
 // component.
 class UploadPage extends Component {
+    handleFinishedUpload = info => {
+        console.log('File uploaded with filename', info.filename)
+        console.log('Access it on s3 at', info.fileUrl)
 
+        this.props.dispatch({type:'POST_MEDIA_URL', payload:info.fileUrl});
+    }
 
     render() {
         const uploadOptions = {
