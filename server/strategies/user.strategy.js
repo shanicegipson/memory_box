@@ -33,15 +33,15 @@ passport.deserializeUser((id, done) => {
 
 // Does actual work of logging in
 passport.use('local', new LocalStrategy((username, password, done) => {
-    console.log('Wert?')
+    
     pool.query('SELECT * FROM "user" WHERE username = $1', [username])
       .then((result) => {
         const user = result && result.rows && result.rows[0];
-        console.log('this is the user', user);
+        
         if (user && encryptLib.comparePassword(password, user.password)) {
           // All good! Passwords match!
           // done takes an error (null in this case) and a user
-          console.log('success!!!')
+        
           done(null, user);
         } else {
           // Not good! Username and password do not match.

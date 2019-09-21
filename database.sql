@@ -31,3 +31,15 @@ CREATE TABLE "memories" (
 	"pics_id" INT REFERENCES "pics",
 	"vid_id" INT REFERENCES "vid"
 );
+
+
+INSERT INTO "pics" (path, description)
+VALUES
+('thisisatesturl', 'this is a test description');
+
+INSERT INTO "pics" (path)
+VALUES
+('thisisatesturlthesecondtime');
+
+
+

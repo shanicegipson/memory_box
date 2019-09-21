@@ -16,16 +16,30 @@ function* postMediaUrl(action) {
         console.log('posting image url');
         
         const response = yield axios.post('api/media', data, config);
-        console.log(response);
-    
+        console.log(response, 'Response for POST');
         
       } catch (error) {
         console.log('User post request failed', error);
       }
 }
 
+function* getMediaInfo() {
+  try {
+    const response = yield axios.get('/api/media/user');
+
+    console.log(response.data, 'this is the response from the GET on saga');
+
+    yield put ({type: 'SET_MEDIA', payload:response.data});
+    
+      
+    } catch (error) {
+      console.log('User GET request failed', error);
+    }
+}
+
 function* mediaInfoSaga() {
   yield takeLatest('POST_MEDIA_URL', postMediaUrl);
+  yield takeLatest('GET_MEDIA', getMediaInfo);
 }
 
 export default mediaInfoSaga;

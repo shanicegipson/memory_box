@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Button from 'react-bootstrap/Button';
+import MediaItem from '../../MediaItem/MediaItem';
 
 
 class UserPage extends Component {
@@ -20,7 +21,8 @@ class UserPage extends Component {
           </h1>
           </div>
           
-          <p>Your ID is: {this.props.store.user.id}</p>
+          
+          <MediaItem />
           <div className='feature-btn'>
             <Button 
               onClick={this.moveToAddPage}
