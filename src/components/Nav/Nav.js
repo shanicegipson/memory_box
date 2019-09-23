@@ -23,6 +23,9 @@ const Nav = (props) => (
           <Link className="nav-link" to="/Upload">
             Upload 
           </Link>
+          <Link className="nav-link" to="/share">
+            Share
+          </Link>
           <LogOutButton className="nav-link"/>
         </>
       )}

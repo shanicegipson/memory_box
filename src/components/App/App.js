@@ -13,11 +13,11 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
-import UploadPage from '../UploadPage/UploadPage';
+import AboutPage from '../pages/AboutPage/AboutPage';
+import UserPage from '../pages/UserPage/UserPage';
+import LandingPage from '../pages/LandingPage/LandingPage';
+import UploadPage from '../pages/UploadPage/UploadPage';
+import SharePage from '../pages/SharePage/SharePage';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
@@ -63,8 +63,8 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute
               exact
-              path="/info"
-              component={InfoPage}
+              path="/share"
+              component={SharePage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will be redirected to the authRedirect path provided. */}

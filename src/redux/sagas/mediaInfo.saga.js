@@ -12,14 +12,11 @@ function* postMediaUrl(action) {
         const data = {
             mediaUrl: action.payload
         }
-
-        console.log('posting image url');
-        
         const response = yield axios.post('api/media', data, config);
-        console.log(response, 'Response for POST');
+        
         
       } catch (error) {
-        console.log('User post request failed', error);
+        
       }
 }
 
@@ -27,7 +24,7 @@ function* getMediaInfo() {
   try {
     const response = yield axios.get('/api/media/user');
 
-    console.log(response.data, 'this is the response from the GET on saga');
+  
 
     yield put ({type: 'SET_MEDIA', payload:response.data});
     

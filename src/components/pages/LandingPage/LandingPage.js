@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 import './LandingPage.css';
-import LoginModal from '../LoginModal/LoginModal';
-import SignupModal from '../SignupModal/SignupModal';
+import LoginModal from '../../LoginModal/LoginModal';
+import SignupModal from '../../SignupModal/SignupModal';
 
 class LandingPage extends Component {
 

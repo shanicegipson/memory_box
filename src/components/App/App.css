@@ -47,3 +47,11 @@ input {
     border-bottom:1px solid #444; 
     cursor: pointer;
 }
+
+
+img {
+    width: 250px;
+    height: auto;
+    margin: 100px;
+}
+
