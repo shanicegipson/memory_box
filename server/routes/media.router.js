@@ -58,4 +58,28 @@ router.post('/', (req, res) => {
 
 });
 
+router.put('/edit/:id', (req, res) => {
+    const updateItem = req.body;
+    const itemId = req.params.id;
+
+    console.log(itemId, 'this is the server side pic Id');
+    console.log(updateItem, 'this is the item being updated');
+
+    const queryText = `UPDATE "pics"
+    SET "description" $1
+    WHERE "id" = $2;`;
+
+    const queryValues = [
+        updatedItem.description,
+        itemId
+      ];
+
+    pool.query(queryText, queryValues)
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error Updating item info', err);
+      res.sendStatus(500);
+    });
+})
+
 module.exports = router;

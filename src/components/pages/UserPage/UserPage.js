@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../../LogOutButton/LogOutButton';
+// import LogOutButton from '../../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import MediaItem from '../../../MediaItem/MediaItem';
 
@@ -27,7 +27,7 @@ class UserPage extends Component {
         <div>
           <div className="header">
           <h1 id="welcome">
-            {userFirstName} MEMORY BOX!
+            {userFirstName}'s MEMORY BOX!
           </h1>
           </div>
               <MediaItem />

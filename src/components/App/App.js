@@ -18,6 +18,7 @@ import UserPage from '../pages/UserPage/UserPage';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import UploadPage from '../pages/UploadPage/UploadPage';
 import SharePage from '../pages/SharePage/SharePage';
+import EditPage from '../pages/EditPage/EditPage';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
@@ -85,6 +86,12 @@ class App extends Component {
               path="/upload"
               // authRedirect="/admin"
               component={UploadPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/edit/:id"
+              // authRedirect="/admin"
+              component={EditPage}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

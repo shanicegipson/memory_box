@@ -34,9 +34,22 @@ function* getMediaInfo() {
     }
 }
 
+
+function* putMedia(action) {
+  try {
+      yield axios.put('/edit/'+action.payload);
+      console.log(action.payload.id, 'Action payload id'); 
+      yield put ({type: 'GET_MEDIA'});
+  }
+  catch(err) {
+      console.log('Error in PUT', err);
+  }
+}  
+
 function* mediaInfoSaga() {
   yield takeLatest('POST_MEDIA_URL', postMediaUrl);
   yield takeLatest('GET_MEDIA', getMediaInfo);
+  yield takeLatest('UPDATE_MEDIA', putMedia);
 }
 
 export default mediaInfoSaga;
