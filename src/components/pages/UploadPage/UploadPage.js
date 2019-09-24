@@ -13,17 +13,15 @@ const dropStyle = {
 
 class UploadPage extends Component {
     handleFinishedUpload = info => {
-        console.log('File uploaded with filename', info.filename)
-        console.log('Access it on s3 at', info.fileUrl)
-        console.log('This is the user id', this.props.store.user.id);
         const data = {
             image: info.fileUrl,
             user:this.props.store.user.id
         }
 
-        console.log(data, 'this is the object I am passing from the upload page to my Router');
-
         this.props.dispatch({type:'POST_MEDIA_URL', payload:data});
+       
+        this.props.history.push("/admin");
+    
     }
 
     render() {

@@ -24,7 +24,7 @@ class MediaItem extends Component {
         const mediaInfo = this.props.store.media.map((media, index) =>{
             console.log(media.pics_id, 'id of pic');
         return (
-            <Grid item xs={12} md={4} key={index}>
+            <Grid item xs={12} md={3} key={index}>
                 <div  className='media_item' >
                     <img src={media.path}  onClick={this.toEditPage(media.pics_id)} alt='text'/>
                     

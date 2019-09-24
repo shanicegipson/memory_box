@@ -12,7 +12,8 @@ function* postMediaUrl(action) {
         const data = {
             mediaUrl: action.payload
         }
-        const response = yield axios.post('api/media', data, config);
+        yield axios.post('api/media', data, config);
+        yield put({ type: 'GET_MEDIA'});
         
         
       } catch (error) {

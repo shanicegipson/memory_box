@@ -11,6 +11,8 @@ import ShareIcon from '@material-ui/icons/Share';
 
 
 class UserPage extends Component {
+  
+  
   moveToUploadPage = (event) => {
     this.props.history.push("/upload");
   }
@@ -21,6 +23,7 @@ class UserPage extends Component {
 
   
   render() {
+    console.log(this.props.history, 'this is the history object in react router');
     const userFirstName = this.props.store.user.firstName;
     return (
       <div>

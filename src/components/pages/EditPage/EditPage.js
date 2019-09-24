@@ -8,34 +8,53 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 // component.
 class EditPage extends Component {
     state = {
-        image:  {
-            id: parseInt(this.props.match.params.id),
-            description: ''
-        }
+        id: parseInt(this.props.match.params.id),
+        description: ''
+        
     }
 
-    updateMovie = (event) => {
+    editInfo = (event, picDesc) => {
+        console.log(picDesc, 'this is the description')
+        this.setState({
+           ...this.state.newInfo,
+            [picDesc]: event.target.value,
+            
+        });
+    }
+    
+
+    updateImage = (event) => {
         event.preventDefault();
-        // const clickedMovieId =this.props.match.params.id
-        this.props.dispatch({ type: 'UPDATE_MEDIA', payload: this.state.image });
-        console.log(this.state.image, 'Updated info');
+        this.props.dispatch({ type: 'UPDATE_MEDIA', payload: this.state });
+        console.log(this.state, 'Updated info');
     }
 
     render() {
-        const mediaInfo =this.props.store.media.map((media, index) => {        
-            // console.log(this.props.match.params.id, 'movie ID that was clicked');
-            // console.log(movie.movies_id, 'movie ID');
-            console.log(media, 'Image that was clicked');
-            // console.log(movie[0].title, 'title of movie clicked');
-        //    console.log(movieInfo, 'movie info');
-            console.log(this.props.match.params.id, 'What is this');
+        let mediaInfo =this.props.store.media.filter((media, index) => { 
+            if (this.props.match.params.id == media.pics_id) {
+                return true;
+            }
 
-            return media.pics_id == this.props.match.params.id
-        })
+            return false;
+            
+            
+        });
+        mediaInfo = mediaInfo.map((media, index) => {
+            console.log(this.props.match.params.id, 'picture ID that was clicked');
+            console.log(parseInt(media.pics_id), 'picture ID');
+            console.log(media, 'Image that was clicked');
+            return (
+                <div key={index}>
+                    <img src={media.path} alt='text' />
+                </div>
+            )
+        });
 
         return (
             <div>
                 {mediaInfo}
+                <textarea type='text' onChange={this.editInfo}></textarea>
+                <button onClick={this.updateImage}>Update</button>
             </div>
         );
     }

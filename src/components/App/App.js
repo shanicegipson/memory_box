@@ -19,6 +19,7 @@ import LandingPage from '../pages/LandingPage/LandingPage';
 import UploadPage from '../pages/UploadPage/UploadPage';
 import SharePage from '../pages/SharePage/SharePage';
 import EditPage from '../pages/EditPage/EditPage';
+import GuestPage from '../pages/GuestPage/GuestPage';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
@@ -50,6 +51,12 @@ class App extends Component {
               exact
               path="/home"
               component={LandingPage}
+            />
+
+            <Route
+              exact
+              path="/guest/:id"
+              component={GuestPage}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
