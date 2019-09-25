@@ -7,6 +7,15 @@ import { withRouter } from 'react-router-dom';
 
 
 class GuestPage extends Component {
+
+    componentDidMount() {
+      this.props.dispatch({type:'GET_MEDIA_GUEST', payload: this.props.match.params.id});
+    }
+
+    // componentDidUpdate() {
+    //   this.props.dispatch({type:'GET_MEDIA_GUEST', payload: this.props.match.params.id});
+    // }
+
     moveToUserPage = (event) => {
       this.props.history.push("/admin");
     }
@@ -17,13 +26,14 @@ class GuestPage extends Component {
   
     
     render() {
-    //   const userFirstName = this.props.store.user.firstName;
+      const userFirstName = this.props.store.user.firstName;
+      console.log(this.props.store, 'What is this?');
       return (
         <div>
           <div>
             <div className="header">
             <h1 id="welcome">
-              {/* {userFirstName}'s MEMORY BOX! */}
+              {userFirstName}'s MEMORY BOX!
             </h1>
             </div>
             <div>

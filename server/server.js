@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const mediaRouter = require('./routes/media.router');
+const guestRouter = require('./routes/guest.router');
 
 const UploaderS3Router = require('react-dropzone-s3-uploader/s3router');
 
@@ -28,6 +29,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/media', mediaRouter);
+app.use('/api/guest', guestRouter);
 
 app.use('/s3', UploaderS3Router({
   bucket: 'memoryboxbucket',                       // required

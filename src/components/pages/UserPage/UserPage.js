@@ -23,7 +23,6 @@ class UserPage extends Component {
 
   
   render() {
-    console.log(this.props.history, 'this is the history object in react router');
     const userFirstName = this.props.store.user.firstName;
     return (
       <div>

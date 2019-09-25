@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
 
 class LoginModal extends Component {
+  
 
   showModal = () => {
     Swal.mixin({
@@ -58,9 +60,11 @@ class LoginModal extends Component {
 
   render() {
     return (
-      <div className='login'>
-        <button onClick={this.showModal}>Login</button>
-      </div>
+      
+        <div className='login'>
+          <Button variant= 'contained' size='large' color='primary' onClick={this.showModal}>Login</Button>
+        </div>
+      
     )
   }
 }

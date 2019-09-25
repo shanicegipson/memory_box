@@ -38,8 +38,8 @@ function* getMediaInfo() {
 
 function* putMedia(action) {
   try {
-      yield axios.put('/edit/'+action.payload);
-      console.log(action.payload.id, 'Action payload id'); 
+      yield axios.put('/edit/'+ action.payload);
+      console.log(action.payload.id, 'Action payload should be the id'); 
       yield put ({type: 'GET_MEDIA'});
   }
   catch(err) {

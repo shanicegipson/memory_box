@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+import Button from '@material-ui/core/Button';
+
 class SignupModal extends Component {
   state = {
     firstName: '',
@@ -64,7 +66,7 @@ class SignupModal extends Component {
     render () {
         return (
             <div className='login'>
-                <button onClick={this.showModal}>SIGNUP</button>
+                <Button variant= 'contained' size='large' color='secondary' onClick={this.showModal}>SIGNUP</Button>
             </div>
         )
     }

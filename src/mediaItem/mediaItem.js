@@ -12,7 +12,9 @@ class MediaItem extends Component {
     }
     
     componentDidMount() {
-        this.props.dispatch({type: 'GET_MEDIA'})
+        
+        this.props.dispatch({type: 'GET_MEDIA'}); 
+       
     }
 
     toEditPage = (pics_id) => (event) => {

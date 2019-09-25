@@ -16,6 +16,8 @@ router.get('/user', rejectUnauthenticated, (req, res) => {
     const user = req.user;
 
     console.log(user, 'this should be the user');
+    console.log(req, 'How did we get the user');
+    
 
     pool.query(queryText, [user.id])
     .then((result) => {res.send(result.rows);})

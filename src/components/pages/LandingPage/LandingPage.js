@@ -17,8 +17,8 @@ class LandingPage extends Component {
            this.props.history.push("/admin");
         }
         return (
-            <div className="container">
-               
+            <div className="landing_container">
+               <div className="transparent-div">
                 <p>Memory Box is a user-friendly web application that allows the user to post images, videos, and 
                     captions to their personalized account. The user is then able to share these images through a 
                     URL link that they send to friends and family members to give them access. The recipient of 
@@ -26,6 +26,7 @@ class LandingPage extends Component {
                     to click on the link to be redirected to the user's page.</p>
                  <LoginModal />
                  <SignupModal />
+                 </div>
             </div>
         );
     }
