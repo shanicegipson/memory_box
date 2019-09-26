@@ -13,6 +13,7 @@ class LoginModal extends Component {
     Swal.mixin({
       input: 'text',
       confirmButtonText: 'Next &rarr;',
+      confirmButtonColor:'#0bbaa6',
       showCancelButton: true,
       progressSteps: ['1', '2']
     }).queue([
@@ -44,12 +45,13 @@ class LoginModal extends Component {
                 username: result.value[0],
                 email: result.value[0],
                 password: result.value[1],
-              },
+              }
             
             });
             
 
           } else {
+            alert('Error: Please check your email or password');
             this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
           }
         })
@@ -61,8 +63,11 @@ class LoginModal extends Component {
   render() {
     return (
       
-        <div className='login'>
-          <Button variant= 'contained' size='large' color='primary' onClick={this.showModal}>Login</Button>
+        <div className='login-btn'>
+          <Button size='large' variant= 'contained' 
+          color='primary' 
+          fullWidth={true}
+          onClick={this.showModal}>Login</Button>
         </div>
       
     )

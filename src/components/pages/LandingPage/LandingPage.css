@@ -4,43 +4,38 @@ Container
 
 .container {
     padding: 20px;
+    
 }
 
-body  {
-    background-color: #008183;
+.landing_container {
     background-image: url(../../../images/memoryboxbackground.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
-
-.btn {
-    background-color: #00acb0;
-    border-radius: 4px;
-    color: #f8f8f8;
+.log-modal{
+    text-align: left;
     display: inline-block;
-    padding: 10px;
-    outline: 0;
-    cursor: pointer;
-    font-size: 1.1rem;
-}
-
-.btn_sizeMin {
-    min-height: 50px;
-    min-width: 100px;
-}
-
-.btn_sizeFull {
-    display: block;
     width: 100%;
+    
 }
 
-.btn:hover {
-    background-color: #008183;
-    text-decoration: none;
+.sign-modal{
+    text-align: right;
+    
+
+}
+
+.modal {
+    display: inline-block;
+}
+
+.modal-btn {
+     margin: 100px;
+     display: inline-block;
 }
 
 /* --------------------------------------------------------------------------------
@@ -48,16 +43,16 @@ Grid
 -------------------------------------------------------------------------------- */
 
 .grid {
-    display: flex;
-    flex: 0 1 auto;
+    /* display: flex;
+    flex: 0 1 auto; */
     /* defaults to 'row' */
-    flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
     /* defaults to 'flex-start' */
-    justify-content: flex-start;
-    align-items: flex-start;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
 }
-
+/* 
 .grid-col {
     flex: 0 0 auto;
     padding: 0 0.5rem 0.5rem;
@@ -122,9 +117,18 @@ Grid
 .grid-col_12 {
     flex-basis: 100%;
     max-width: 100%;
-}
+} */
 
 .transparent-div {
     background-color: rgba(119, 119, 119, 0.75);
-  
+    background-size: contain;
+    margin:50px;
+    padding: 200px;
+    display: inline-block;
+}
+
+.description {
+    color: whitesmoke;
+    font-size: 20px;
+    padding: 50px;
 }

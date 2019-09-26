@@ -10,8 +10,8 @@ import AddIcon from '@material-ui/icons/Add';
 import ShareIcon from '@material-ui/icons/Share';
 
 
+
 class UserPage extends Component {
-  
   
   moveToUploadPage = (event) => {
     this.props.history.push("/upload");
@@ -25,12 +25,13 @@ class UserPage extends Component {
   render() {
     const userFirstName = this.props.store.user.firstName;
     return (
-      <div>
-        <div>
+      <div className=".container">
+       
           <div className="header">
           <h1 id="welcome">
             {userFirstName}'s MEMORY BOX!
           </h1>
+
           </div>
               <MediaItem />
           
@@ -49,11 +50,7 @@ class UserPage extends Component {
             </Fab>
                 
             </div>
-          
-          
-
-          {/* <LogOutButton className="log-in" /> */}
-        </div>
+      
       </div>
 
     )
