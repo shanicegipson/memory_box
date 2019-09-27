@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
+import { withRouter } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace 
-// the component name TemplateClass with the name for the new 
-// component.
+
+
+import TextField from '@material-ui/core/TextField';
+
+import Button from '@material-ui/core/Button';
+
+
 class EditPage extends Component {
     state = {
         id: parseInt(this.props.match.params.id),
@@ -13,11 +18,11 @@ class EditPage extends Component {
         
     }
 
-    editInfo = (event, picDesc) => {
-        console.log(picDesc, 'this is the description')
+    editInfo = (event, newPicDesc) => {
+        console.log(newPicDesc, 'this is the description')
         this.setState({
-           ...this.state.newInfo,
-            [picDesc]: event.target.value,
+           ...this.state,
+            [newPicDesc]: event.target.value,
             
         });
     }
@@ -25,8 +30,18 @@ class EditPage extends Component {
 
     updateImage = (event) => {
         event.preventDefault();
-        this.props.dispatch({ type: 'UPDATE_MEDIA', payload: this.state });
-        console.log(this.state, 'Updated info');
+        this.props.dispatch({
+             type: 'UPDATE_MEDIA',
+              payload: {
+                  ...this.state, 
+                  id:this.props.match.params.id
+            },
+        });
+        this.props.history.push("/admin");
+    }
+
+    toUserPage() {
+        this.props.history.push("/admin");
     }
 
     render() {
@@ -34,30 +49,60 @@ class EditPage extends Component {
             if (this.props.match.params.id == media.pics_id) {
                 return true;
             }
-
             return false;
-            
-            
         });
         mediaInfo = mediaInfo.map((media, index) => {
-            console.log(this.props.match.params.id, 'picture ID that was clicked');
-            console.log(parseInt(media.pics_id), 'picture ID');
-            console.log(media, 'Image that was clicked');
             return (
                 <div key={index}>
-                    <img src={media.path} alt='text' />
+                    <h1>EDIT PAGE</h1>
+                    <div>
+                        <img className='edit-pic' src={media.path} alt='text' />
+                        <p>{media.description}</p>
+                    </div>
                 </div>
             )
         });
 
         return (
+           
             <div>
-                {mediaInfo}
-                <textarea type='text' onChange={this.editInfo}></textarea>
-                <button onClick={this.updateImage}>Update</button>
+                <Grid container spacing={3}>
+                    <Grid item xs={6}>
+                        {mediaInfo}
+                    </Grid>
+                    <Grid xs={6}>
+                        <TextField
+                            id='outlined-with-placeholder'
+                            onChange={(event) => this.editInfo(event, 'description')}
+                            value={this.state.description}
+                            label="Add Description"
+                            variant='filled'
+                            multiline rowsMax="4"
+                            >
+                        </TextField>
+                        <Grid container spacing={3}>
+                            <Grid item xs={3}>
+                            <Button 
+                                variant="contained" 
+                                color="primary" 
+                                size="large" 
+                                onClick={this.updateImage}>Save</Button>
+                        </Grid>
+                            <Grid item xs={3}>
+                                <Button 
+                                    variant="contained" 
+                                    color="secondary" 
+                                    size="large" 
+                                    onClick={this.toUserPage}>Cancel</Button>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>  
             </div>
-        );
+           
+            
+        ); 
     }
 }
 
-export default connect(mapStoreToProps)(EditPage);
+export default connect(mapStoreToProps)(withRouter(EditPage));

@@ -1,3 +1,6 @@
-.img {
-    width:auto;
+img {
+    height: inherit;
+}
+.pic-grid {
+    padding:100px;
 }

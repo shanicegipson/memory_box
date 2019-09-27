@@ -1,6 +1,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    background: #00acb0 none;
+}
+html,
+body {
+    height: 100%;
 }
 
 .alert {

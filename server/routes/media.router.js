@@ -62,17 +62,17 @@ router.post('/', (req, res) => {
 
 router.put('/edit/:id', (req, res) => {
     const updateItem = req.body;
-    const itemId = req.params.id;
+    const itemId = req.body.id
 
     console.log(itemId, 'this is the server side pic Id');
     console.log(updateItem, 'this is the item being updated');
 
     const queryText = `UPDATE "pics"
-    SET "description" $1
+    SET "description" = $1
     WHERE "id" = $2;`;
 
     const queryValues = [
-        updatedItem.description,
+        updateItem.description,
         itemId
       ];
 

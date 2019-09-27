@@ -22,6 +22,8 @@ class SharePage extends Component {
     
 
     render() {
+        const userId = this.props.store.user.id;
+        const guestUrl = `${window.location.origin}/#/guest/${userId}`
         
         return (
             <div>
@@ -29,12 +31,14 @@ class SharePage extends Component {
                     <h2>You've gathered some awesome memories to share with friends and family! </h2>
                 </div>
                 <div>
-                    <p>Sharing your profile is as easy as a click of a button. Push the button below to copy your URL and share with whomever you like!</p>
+                    <p>Sharing your profile is as easy as a click of a button. 
+                        Push the button below to copy your URL and share with 
+                        whomever you like!</p>
                 </div>
                 <div>
-                    <textarea 
+                    <textarea className="url-box" 
                         ref={(textarea) => this.textArea = textarea}
-                        value={this.props.match.url} id='urlId'/>
+                        value={guestUrl} id='urlId'/>
                     
                     <button onClick={this.copyUrl}>Copy</button>
                 </div>

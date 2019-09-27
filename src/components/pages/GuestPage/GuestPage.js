@@ -26,8 +26,12 @@ class GuestPage extends Component {
   
     
     render() {
-      const userFirstName = this.props.store.user.firstName;
-      console.log(this.props.store, 'What is this?');
+      let userFirstName = null;
+      if (this.props.store.media.length > 0) {
+        userFirstName = this.props.store.media[0].firstName;
+      }
+
+      console.log(userFirstName, 'What is this?');
       return (
         <div>
           <div>

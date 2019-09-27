@@ -22,12 +22,31 @@ import EditPage from '../pages/EditPage/EditPage';
 import GuestPage from '../pages/GuestPage/GuestPage';
 
 
-
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 import './App.css';
 import LoginModal from '../LoginModal/LoginModal';
 import SignupModal from '../SignupModal/SignupModal';
 
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#26a69a',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+    secondary: {
+      light: '#0066ff',
+      main: '#00796b',
+      // dark: will be calculated from palette.secondary.main,
+      contrastText: '#ffcc00',
+    },
+  }
+
+});
 
 
 class App extends Component {
@@ -37,7 +56,7 @@ class App extends Component {
 
   render() {
     return (
-    
+    <MuiThemeProvider theme={theme}>
       <Router>
         <div>
           <Nav />
@@ -112,6 +131,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+    </MuiThemeProvider>
  
   )}
 }

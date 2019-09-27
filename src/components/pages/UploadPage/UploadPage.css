@@ -1,0 +1,9 @@
+.drop-zone {
+    padding: 5% 0% 5% 30%;
+}
+
+.inside-drop {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 25px;
+}

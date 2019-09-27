@@ -25,8 +25,6 @@ function* getMediaInfo() {
   try {
     const response = yield axios.get('/api/media/user');
 
-  
-
     yield put ({type: 'SET_MEDIA', payload:response.data});
     
       
@@ -38,8 +36,10 @@ function* getMediaInfo() {
 
 function* putMedia(action) {
   try {
-      yield axios.put('/edit/'+ action.payload);
-      console.log(action.payload.id, 'Action payload should be the id'); 
+    console.log(action.payload.id, 'Action payload should be the id'); 
+    console.log(action.payload, 'Action payload');
+      yield axios.put(`/api/media/edit/+ ${action.payload.id}`, action.payload);
+      
       yield put ({type: 'GET_MEDIA'});
   }
   catch(err) {

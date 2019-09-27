@@ -3,11 +3,16 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 
+import './UploadPage.css';
+
+
 const dropStyle = {
-    width: '200px',
-    height:'100px',
-    border: '3px solid teal',
-    backgroundColor: 'grey'
+    width: '800px',
+    height:'400px',
+    border: '5px solid #a8f0e9',
+    position: 'relative',
+    backgroundColor: 'rgba(194, 192, 192, 0.75)', 
+    
 }
 
 
@@ -32,16 +37,24 @@ class UploadPage extends Component {
 
         const s3Url = 'https://memoryboxbucket.s3.amazonaws.com';
 
+        const insideDropArea = (
+            <div className='inside-drop'>
+                <p>Click or Drop File Here!</p>
+            </div>
+        )
+
         return (
             <div>
-                <h2>Add a new image below:</h2>
-                <DropzoneS3Uploader
-                    onFinish={this.handleFinishedUpload}
-                    style={dropStyle}
-                    s3Url={s3Url}
-                    maxSize={1024 * 1024 * 5}
-                    upload={uploadOptions}
-                />
+                <div className='drop-zone'>
+                    <DropzoneS3Uploader 
+                        children={insideDropArea}
+                        onFinish={this.handleFinishedUpload}
+                        style={dropStyle}
+                        s3Url={s3Url}
+                        maxSize={1024 * 1024}
+                        upload={uploadOptions}
+                    />
+                </div>
             </div>
 
         )

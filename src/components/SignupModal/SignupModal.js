@@ -3,35 +3,9 @@ import Swal from 'sweetalert2';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { withStyles } from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      // light: will be calculated from palette.primary.main,
-      main: '#26a69a',
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
-    },
-    secondary: {
-      light: '#0066ff',
-      main: '#00796b',
-      // dark: will be calculated from palette.secondary.main,
-      contrastText: '#ffcc00',
-    },
-  }
-
-});
-
-const styles = {
-  root: {
-    color: 'white',
-  }
-};
 
 class SignupModal extends Component {
   state = {
@@ -95,11 +69,11 @@ class SignupModal extends Component {
     render () {
 
         return (
-          <MuiThemeProvider theme={theme}>
+          
             <div className='sign-btn'>
                 <Button variant= 'contained'  fullWidth={true} size='large' color='secondary' onClick={this.showModal}>SIGNUP</Button>
             </div>
-          </MuiThemeProvider>
+         
             
         )
     }

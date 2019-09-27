@@ -49,7 +49,6 @@ class LoginModal extends Component {
             
             });
             
-
           } else {
             alert('Error: Please check your email or password');
             this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../redux/mapStoreToProps';
-import { Grid } from '@material-ui/core';
+import { withStyles, createStyles, Theme } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 
 import GridList from '@material-ui/core/GridList';
@@ -9,22 +9,21 @@ import GridListTile from '@material-ui/core/GridListTile';
 
 import './MediaItem.css';
 
-// const useStyles = makeStyles(theme => ({
-//     root: {
-//       display: 'flex',
-//       flexWrap: 'wrap',
-//       justifyContent: 'space-around',
-//       overflow: 'hidden',
-//       backgroundColor: theme.palette.background.paper,
-//     },
-//     gridList: {
-//       width: 500,
-//       height: 450,
-//     },
-//   }));
-  
-//   const classes = useStyles();
-  
+const styles = (theme: Theme) =>
+    createStyles ({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+            overflow: 'hidden',
+            backgroundColor: theme.palette.background.paper,
+          },
+          gridList: {
+            width: 500,
+            height: 450,
+          },
+    })
+ 
 
 class MediaItem extends Component {
     state = {
@@ -47,18 +46,16 @@ class MediaItem extends Component {
             console.log(media.pics_id, 'id of pic');
         return (
             <GridListTile  key={index}>
-                <div  className='media_item' >
-                    <img src={media.path}  onClick={this.toEditPage(media.pics_id)} alt='text'/>
-                </div>
+                <img src={media.path}  onClick={this.toEditPage(media.pics_id)} alt='text'/>
             </GridListTile >
         )
     });
         
         return(
-            <div>
-                <GridList cellHeight={'auto'} cols={3}>{mediaInfo}</GridList>
+            <div className="pic-grid">
+                <GridList cellHeight={200} cols={6}>{mediaInfo}</GridList>
             </div>
         )
     }
 }
-export default connect (mapStoreToProps)(withRouter(MediaItem));
+export default  connect(mapStoreToProps)(withStyles(styles)(withRouter(MediaItem)));

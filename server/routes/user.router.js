@@ -21,7 +21,9 @@ router.post('/register', (req, res, next) => {
   const password = encryptLib.encryptPassword(req.body.password);
   const username = req.body.email;
 
-  const queryText = `INSERT INTO "user" ("firstName", "email", "password", "username") VALUES ($1, $2, $3, $4) RETURNING id;`;
+  const queryText = `INSERT INTO "user" 
+  ("firstName", "email", "password", "username") 
+  VALUES ($1, $2, $3, $4) RETURNING id;`;
 
   pool.query(queryText, [firstName, email, password, username])
     .then(() => res.sendStatus(201))
