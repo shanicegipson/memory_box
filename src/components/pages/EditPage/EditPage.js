@@ -88,13 +88,13 @@ class EditPage extends Component {
                                 size="large" 
                                 onClick={this.updateImage}>Save</Button>
                         </Grid>
-                            <Grid item xs={3}>
+                            {/* <Grid item xs={3}>
                                 <Button 
                                     variant="contained" 
                                     color="secondary" 
                                     size="large" 
                                     onClick={this.toUserPage}>Cancel</Button>
-                            </Grid>
+                            </Grid> */}
                         </Grid>
                     </Grid>
                 </Grid>  
