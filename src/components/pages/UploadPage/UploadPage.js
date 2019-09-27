@@ -31,7 +31,7 @@ class UploadPage extends Component {
 
     render() {
         const uploadOptions = {
-            server: 'http://localhost:5000',
+            server: 'http://https://pacific-river-77354.herokuapp.com',
             // signingUrlQueryParams: {uploadType: 'avatar'},
         }
 
