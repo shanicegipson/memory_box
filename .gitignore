@@ -65,4 +65,4 @@ typings/
 package-lock.json
 
 # Build directories for Front-End Assets
-src/build/
+build/
