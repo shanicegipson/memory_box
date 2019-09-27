@@ -30,7 +30,8 @@ class UploadPage extends Component {
 
     render() {
         const uploadOptions = {
-            server: 'http://https://memory-box-app.herokuapp.com',
+            // server: 'https://memory-box-app.herokuapp.com',
+            server: 'http://localhost:5000',
             // signingUrlQueryParams: {uploadType: 'avatar'},
         }
 

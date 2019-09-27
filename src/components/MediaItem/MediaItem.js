@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../redux/mapStoreToProps';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { withRouter } from 'react-router-dom';
 
