@@ -12,7 +12,6 @@ const dropStyle = {
     border: '5px solid #a8f0e9',
     position: 'relative',
     backgroundColor: 'rgba(194, 192, 192, 0.75)', 
-    
 }
 
 
@@ -31,7 +30,7 @@ class UploadPage extends Component {
 
     render() {
         const uploadOptions = {
-            server: 'http://https://pacific-river-77354.herokuapp.com',
+            server: 'http://https://memory-box-app.herokuapp.com',
             // signingUrlQueryParams: {uploadType: 'avatar'},
         }
 
