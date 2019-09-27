@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../redux/mapStoreToProps';
-import { withStyles, createStyles, Theme } from '@material-ui/core';
+import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { withRouter } from 'react-router-dom';
 
 import GridList from '@material-ui/core/GridList';
@@ -9,7 +9,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 
 import './MediaItem.css';
 
-const styles = (theme: Theme) =>
+const styles = (theme) =>
     createStyles ({
         root: {
             display: 'flex',
