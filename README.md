@@ -4,6 +4,8 @@
 
 Instagram, Facebook and even an iphone all have features that their users to create and share photos with their loved ones. Unfortunately these platforms require a membership to view these precious moments. Fortunately with the creation of memory box you are able to share your photos with your friends and family even if they don't have an account.
 
+Click here to view my project deployed on heroku: https://shrouded-depths-21684.herokuapp.com/#/home
+
 ## Prerequisites
 
 Before you get started, make sure you have the following software installed on your computer:
