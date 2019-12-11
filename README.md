@@ -27,11 +27,11 @@ If your application has secret keys (for example --  Twilio), make sure you tell
 
 
 ##Usage
-###User
+### User
 * The user will **Log in** or **Sign up** and after successful completion are redirected to their personalized profile page
 * The user can upload an unlimited amount photos to their profiles and share a personalized link to anyone they choose
 
-###Guest
+### Guest
 * Once guest has recieved the url link from the user the guest copies it into thier 
 
 
