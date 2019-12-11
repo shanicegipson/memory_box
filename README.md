@@ -26,7 +26,7 @@ If your application has secret keys (for example --  Twilio), make sure you tell
 6. The `npm run client` command will open up a new browser tab for you!
 
 
-##Usage
+## Usage
 ### User
 * The user will **Log in** or **Sign up** and after successful completion are redirected to their personalized profile page
 * The user can upload an unlimited amount photos to their profiles and share a personalized link to anyone they choose
